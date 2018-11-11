@@ -1,7 +1,7 @@
 # ec503_project
 ec503_project-Expectation–maximization algorithm improvements 
 
-#data set number 1 :
+# data set number 1 :
 
 http://archive.ics.uci.edu/ml/datasets/Adult
 
