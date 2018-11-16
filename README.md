@@ -1,5 +1,34 @@
 # ec503_project
-ec503_project-Expectation–maximization algorithm improvements 
+
+
+# project task:
+
+(a) EM main ideas [Murphy,Sec.11.4.1]
+
+(b) Study EM in the context of clustering. Use GMMs as a key model for 
+clustering. [Murphy,Sec.11.4.2]
+
+(c) Explore connection with k-means. [Murphy,Sec.11.4.5]
+
+(d) Study the impact of various initialization [Murphy,Sec.11.4.2.7].
+
+(e) Study the need for prior (Bayesian regularization) [Murphy,Sec.11.4.2.8]
+
+(f) Study the application of EM for missing-data problems. 
+[Murphy,Sec.11.6]. Also read [Murphy,Sec.8.6.2]
+
+(g) Repeat some parts of (b)--(f) for the so-called "mixture of product 
+of Bernoullis" model: all features are binary and in each mixture 
+component, you assume a Naive-Bayes Bernoulli model. You can derive the 
+EM algorithm for this model. You can apply it to cluster the 
+binarized-MNIST dataset. You can even study the missing-data problem on 
+this dataset. The results will be very visual. You can read more about 
+EM for mixture of Bernoulli models here:
+
+
+https://cedar.buffalo.edu/~srihari/CSE574/Chap9/Ch9.4-MixturesofBernoulli.pdf
+
+
 
 # data set number 1 :
 
@@ -41,7 +70,7 @@ native-country: United-States, Cambodia, England, Puerto-Rico, Canada, Germany, 
 
 
 
-# data set number 1 :
+# data set number 2 :
 
 http://archive.ics.uci.edu/ml/datasets/zoo
 
