@@ -1,24 +1,41 @@
 clc
 clear all
-tic 
-rng(1)
-% precompute
-[x_data,y_data,animals_name] = process_data_zoo();
-[n,d]=size(x_data);
+rng default  
+mu1 = [0 0];
+sigma1 = [1 0; 0 1];
+R1 = mvnrnd(mu1,sigma1,100);
+
+mu2 = [5 6];
+sigma2 = [1 0; 0 1];
+R2 = mvnrnd(mu2,sigma2,100);
+
+figure
+plot(R1(:,1),R1(:,2),'+')
+hold on
+plot(R2(:,1),R2(:,2),'o')
+
+y_data=ones(200,1);
+y_data(101:200)=2;
+
+x_data=[R1;R2];
 %% initialize
 % uniform prior distribution
-[K,~]=size(unique(y_data));
+K=2;
+d=2;
+n=200;
 pi=ones(1,K)/K;
 % mean for each class
-%mu=rand(K,d);
-% choose random 2 in dataset
-mu=x_data(randi(n,K,1),:);
+%complete random
+mu=rand(K,d);
+
+%choose 2 random points from data set
+%mu=x_data(randi(200,2,1),:)
 % covariance for each class
 for k =1:K
     sigma(:,:,k)=eye(d,d);
 end
 
-for iter=1:90
+for iter=1:500
     %% E-step
     for k=1:K
         p(:,k)=pi(k)*mvnpdf(x_data,mu(k,:),sigma(:,:,k)); 
@@ -45,15 +62,17 @@ for iter=1:90
     obj_fun(iter)=sum(log(mvnpdf(x_data,mu(predicted,:),sigma(:,:,predicted)))); 
 end
 
+%%
+ccr=label_clustring_ccr(predicted,2,y_data);
+
 figure(1)
-[~,predict]=max(r,[],2);
-[s,h] = silhouette(x_data,predict);
+[s,h] = silhouette(x_data,predicted)
 title('silhouette for clustering')
+
+%%
 figure(2)
-plot(obj_fun);
-xlabel('iteration')
-ylabel('value of log likelihood')
-title('log likelihood function')
-
-
-ccr=label_clustring_ccr(predicted,K,y_data)
+G = gmdistribution(mu,sigma)
+F = @(x,y) pdf(G,[x y])
+plot(x_data(:,1),x_data(:,2),'.')
+hold on
+ezcontour(F)
