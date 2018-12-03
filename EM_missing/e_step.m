@@ -49,7 +49,7 @@ function [r,miss_data_expected,sigma_inv] = e_step(x_data,K,pi,mu,sigma)
             mm_mo = inv((sigma_inv(features_miss,features_miss,i)))*(sigma_inv(features_miss,features_observed,i));
             miss_data_expected(c:c+total_miss-1,1,i)=miss_data_idx(j);
             miss_data_expected(c:c+total_miss-1,2,i)= find(features_miss);
-            miss_data_expected(c:c+total_miss-1,3,i)=mu(i,features_miss)-mm_mo*(x_data(miss_data_idx(j),features_observed)-mu(i,features_observed));;
+            miss_data_expected(c:c+total_miss-1,3,i)=mu(i,features_miss)'-mm_mo*(x_data(miss_data_idx(j),features_observed)-mu(i,features_observed))';;
             c=c+total_miss;
         end
     end
