@@ -2,17 +2,15 @@
 %% Boston University                                                     %%  
 %% Fall 2018, ProjectAXE                                                 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function  : m_step                                              %
-% Inputs    : x_data     - The n data points in R^d size (total sizen*d)  %
-%           : K - Number of different classes.                            %
+% Function  : Mstep                                                       %  
+% Inputs    : X     - The n data points in R^d size (n*d)                 %
 %             r      - output of the EM algorithm Expectation part.       %
 %                      r will be of size of n*K and it will hold the      %
 %                      probability for each class.                        %
-% Outputs   :
-%             pi      - Vector of length K with prior probabilty for each %
-%             class                                                       %
-%             mu      - Matrix of K mean value for each class.            %
-% Variable Naming Convention: (var)_(property); pt--point, C--cluster     %
+% Outputs   :                                                             %
+%             Pi      - Vector of length K w/ prior prob. of each class   %                                                    %
+%             Mu      - Matrix of K mean value for each class. (k*d)      %
+%                                                                         %
 %                                                                         %
 %                                                                         %  
 

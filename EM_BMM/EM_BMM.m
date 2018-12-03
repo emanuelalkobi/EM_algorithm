@@ -1,3 +1,10 @@
+%% EC 503: Learning from Data                                            %% 
+%% Boston University                                                     %%  
+%% Fall 2018, ProjectAXE                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Function  : EM algorithms                                               %
+% Demo of EM algorithm with different initializations on MNIST data set   %
+
 function EM_BMM()
     clc
     rng('default');

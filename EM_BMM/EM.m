@@ -3,22 +3,19 @@
 %% Fall 2018, ProjectAXE                                                 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Function  : EM algorithms                                               %
-% Inputs    : x_data- n*d matrix .n-number of samples , d-dimension       %
-%             of samples                                                  %
+% Inputs    : X          - n*d matrix .n-number of samples , d-dimension  %
 %             K          - Number of different classes.                   %
-%             method     - The way to initialize the parameters:          %
-%             random     -Choose completly random values for the mean of  %
-%             clasess.                                                    %
-%             data_random-Choose K random points from X_data to be the    %
-%             initial mean of clasess.                                    %
-%             k_means-Use k means algorith for initial all the output     %
-%             parameters.                                                 %
-%             iter-number of iterations to run the EM algorith            % 
-%             diff-the difference between 2 consecutive iterations than   %
-%             is  less than diff value  will stop the EM algorithm        %     
+%             Method     - The way to initialize the parameters:          %
+%             'random'   - Choose completly random values for the mean of %
+%                          clasess.                                       %
+%             'data_random' - Choose K random points from X_data to be the%
+%                             initial mean of clasess.                    %
+%             'k_means'  - Use k means algorith for initial all the output%
+%                          parameters.                                    %
+%             iter       - Number of iterations to run the EM algorith    % 
+%             eps        - Convergence threshold (Not Used)               %
 % Outputs   :                                                             %
-%             y_predicted-n*1 vector.It is the predicted  labels for      %
-% Variable Naming Convention: (var)_(property); pt--point, C--cluster     %
+%             Y_Pred     - n*1 vector. It is the predicted Cluster Label  %
 %                                                                         %
 %                                                                         %  
 

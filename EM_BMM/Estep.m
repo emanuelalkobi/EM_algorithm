@@ -3,7 +3,6 @@
 %% Boston University                                                     %%  
 %% Fall 2018, ProjectAXE                                                 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Author    : Aman Gupta                                                  %
 % Inputs    : X             - The n data points in R^d size  (size n*d)   %
 %             K             - Number of different classes/Clusters.       %
 %             pi            - Vector w/ prior prob. for each class k (k*1)%
