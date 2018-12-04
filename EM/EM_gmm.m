@@ -36,9 +36,9 @@ x_data=[R1;R2];
 K=2;
 
 %%
-y_predicted_rnd=EM(x_data,K,'random',500,10^-5);
-y_predicted_rnd_data=EM(x_data,K,'data_random',500,10^-5);
-y_predicted_k_means=EM(x_data,K,'k_means',500,10^-5);
+y_predicted_rnd=EM(x_data,K,'random',500,10^-5,'MAP');
+y_predicted_rnd_data=EM(x_data,K,'data_random',500,10^-5,'MAP');
+y_predicted_k_means=EM(x_data,K,'k_means',500,10^-5,'MAP');
 
 
 
