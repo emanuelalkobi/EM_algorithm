@@ -30,20 +30,22 @@ function [y_predicted] = EM(x_data,K,method,iters,diff)
     [pi,mu,sigma]=initialization(x_data,K,method);
 
     %%
-    obj_fun=0;
+    obj_fun=zeros(1,iters+1);;
 
     for iter=1:iters
+        %iter
+        obj_fun(iter)
         % E-step
         [r,miss_data_expected,sigma_inv]=e_step(x_data,K,pi,mu,sigma);
         % M-step
-        [pi,mu,sigma]=m_step(x_data,K,r,miss_data_expected,sigma_inv);
+        [pi,mu,sigma,obj_fun(iter+1)]=m_step(x_data,K,r,miss_data_expected,sigma_inv);
         [~,predicted]=max(r,[],2);
         %obj_fun(iter+1)=sum(log(mvnpdf(x_data,mu(predicted,:),sigma(:,:,predicted)))); 
 
-        %if abs((obj_fun(iter+1)-obj_fun(iter))/obj_fun(iter+1))<diff;
-         %   fprintf('Optimization converged after %d iterations .\n',iter);
-         %   break
-        %end
+        if abs((obj_fun(iter+1)-obj_fun(iter))/obj_fun(iter+1))<diff;
+            fprintf('Optimization converged after %d iterations .\n',iter);
+            break
+        end
     end
     [~,y_predicted]=max(r,[],2);
 

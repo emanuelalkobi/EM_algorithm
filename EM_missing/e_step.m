@@ -36,6 +36,8 @@ function [r,miss_data_expected,sigma_inv] = e_step(x_data,K,pi,mu,sigma)
         for i = 1:K
             sigma_inv(:,:,i) = inv(sigma(:,:,i));
         end
+    else
+        sigma_inv=0;
     end
     
     miss_data_expected=zeros(Nan_num,3,K);

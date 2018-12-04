@@ -39,7 +39,7 @@ K=2;
 %%
 %%remove some data
 x_miss = x_data;
-miss_ratio = 0.35;
+miss_ratio = 0;
 x_miss(rand(n,d)<miss_ratio) = NaN;
 y_miss=y_data;
 y_miss(sum(isnan(x_miss),2)==2)=[];
@@ -47,9 +47,9 @@ y_miss(sum(isnan(x_miss),2)==2)=[];
 x_miss(sum(isnan(x_miss),2)==2,:) = [];
 x_data=x_miss;
 %%
-y_predicted_rnd=EM(x_data,K,'random',70,10^-5);
-y_predicted_rnd_data=EM(x_data,K,'data_random',70,10^-5);
-y_predicted_k_means=EM(x_data,K,'k_means',70,10^-5);
+y_predicted_rnd=EM(x_data,K,'random',500,10^-5);
+y_predicted_rnd_data=EM(x_data,K,'data_random',500,10^-5);
+y_predicted_k_means=EM(x_data,K,'k_means',500,10^-5);
 
 
 

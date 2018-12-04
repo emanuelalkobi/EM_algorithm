@@ -16,12 +16,14 @@
 %             pi      - Vector of length K with prior probabilty for each %
 %             class                                                       %
 %             mu      - Matrix of K mean value for each class.            %
-%             sigma   - K covariance matrixes                             %
+%             sigma   - K covariance matrixes      
+%             obj_fun - the value of the object funtion at the current    %
+%             iteration                                                   %
 % Variable Naming Convention: (var)_(property); pt--point, C--cluster     %
 %                                                                         %
 %                                                                         %  
 
-function [pi,mu,sigma] = m_step(x_data,K,r,miss_data_expected,sigma_inv)
+function [pi,mu,sigma,obj_fun] = m_step(x_data,K,r,miss_data_expected,sigma_inv)
     [n,d]=size(x_data);
     [n1,d1,~]=size(miss_data_expected);
     pi=sum(r)/n;
@@ -54,6 +56,15 @@ function [pi,mu,sigma] = m_step(x_data,K,r,miss_data_expected,sigma_inv)
     	end
 
     end
+    [~,y_predicted]=max(r,[],2);
+    pdf_est=pdf_with_nan(x_data,K,mu,sigma);
+    tmp=zeros(n,1);
+    for i=1:n
+        tmp(i)=pdf_est(i,y_predicted(i));
+    end
+    obj_fun=sum(log((tmp))); 
+
+    
 
 end
 

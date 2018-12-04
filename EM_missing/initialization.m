@@ -25,6 +25,8 @@ function [pi,mu,sigma] = initialization(x_data,K,method)
     rng(9);
     [n,d]=size(x_data);
     if strcmp(method,'random')
+            rng(9);
+
         pi=ones(1,K)/K;
         mu=rand(K,d);
         for i =1:K
@@ -53,7 +55,7 @@ function [pi,mu,sigma] = initialization(x_data,K,method)
         mu = C;
         pi = hist(L,K)./length(L);
         for i = 1:K
-            sigma(:,:,i) = cov(x_o(L==i,:));
+            sigma(:,:,i) = cov(x_o(L==i,:))+ 0.0001*eye(d);
         end
     end
 
