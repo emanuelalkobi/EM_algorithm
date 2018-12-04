@@ -34,7 +34,7 @@ function [y_predicted] = EM(x_data,K,method,iters,diff)
 
     for iter=1:iters
         %iter
-        obj_fun(iter)
+        obj_fun(iter);
         % E-step
         [r,miss_data_expected,sigma_inv]=e_step(x_data,K,pi,mu,sigma);
         % M-step
