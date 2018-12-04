@@ -13,8 +13,7 @@
 clc
 clear 
 rng default
-%[x_data,y_data] = process_data_adult();
-load('precompute');
+[x_data,y_data] = process_data_adult();
 [K,~]=size(unique(y_data));
 
 %% Data preprocessing
