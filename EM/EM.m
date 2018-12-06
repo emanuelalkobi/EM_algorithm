@@ -17,13 +17,22 @@
 %             diff-the difference between 2 consecutive iterations than   %
 %             is  less than diff value  will stop the EM algorithm   
 %             estimate    - MLEstimate or MAP estimate of parameters
+%             visual      -at which iteration, we visualize how data were
+%                          clustered 
 % Outputs   :                                                             %
 %             y_predicted-n*1 vector.It is the predicted  labels for      %
 % Variable Naming Convention: (var)_(property); pt--point, C--cluster     %
 %                                                                         %
 %                                                                         %  
 
-function [y_predicted] = EM(x_data,K,method,iters,diff,estimate)
+function [out,y_predicted] = EM(x_data,K,method,iters,diff,estimate,visual)
+
+    if nargin == 6
+      	visual=0;
+        out=0;
+    end
+
+
     %initialization
     %number of dimension for each data point 
     [n,d]=size(x_data);
@@ -34,6 +43,9 @@ function [y_predicted] = EM(x_data,K,method,iters,diff,estimate)
     obj_fun=0;
 
     for iter=1:iters
+        if ismember(iter,visual)
+            out=plot_figure(x_data,iter,visual,mu,sigma);
+        end
         % E-step
         r=e_step(x_data,K,pi,mu,sigma);
         % M-step
@@ -47,6 +59,5 @@ function [y_predicted] = EM(x_data,K,method,iters,diff,estimate)
         end
     end
     [~,y_predicted]=max(r,[],2);
-
 end
 

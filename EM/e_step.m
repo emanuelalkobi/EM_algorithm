@@ -22,7 +22,7 @@ function [r] = e_step(x_data,K,pi,mu,sigma)
 %   Detailed explanation goes here
     for k=1:K
             
-            p(:,k)=pi(k)*mvnpdf(x_data,mu(k,:),sigma(:,:,k));%+10^(-50); 
+            p(:,k)=pi(k)*(mvnpdf(x_data,mu(k,:),sigma(:,:,k))); 
     end
     r=p./sum(p,2);
 end

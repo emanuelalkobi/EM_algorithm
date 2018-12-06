@@ -26,8 +26,6 @@ y_predicted_k_means=EM(x_data,K,'k_means',500,10^-12,'ML');
 
 
 
-
-
 %%
 %results
 ccr_random=label_clustring_ccr(y_predicted_rnd,K,y_data);
