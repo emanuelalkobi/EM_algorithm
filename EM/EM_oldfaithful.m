@@ -18,13 +18,13 @@ K=2;
 %Use result of k means as ground truth.
 [y_data,C]=kmeans(x_data,K);
 %% 
-[out1,y_predicted_rnd]=EM(x_data,K,'random',50,10^-12,'ML',[1,5,10,15,20,25,30,36]);
+[out1,y_predicted_rnd]=EM(x_data,K,'random',50,10^-12,'ML',[1,2,3,5,8,12,20,29]);
 saveas(out1,'initialize with random value.jpg')
 clf('reset')
-[out2,y_predicted_rnd_data]=EM(x_data,K,'data_random',50,10^-12,'ML',[1,5,10,18]);
+[out2,y_predicted_rnd_data]=EM(x_data,K,'data_random',50,10^-12,'ML',[1,2,5,19]);
 saveas(out2,'initialize with random data.jpg')
 clf('reset')
-[out3,y_predicted_k_means]=EM(x_data,K,'k_means',500,10^-12,'ML',[1,5,10,14]);
+[out3,y_predicted_k_means]=EM(x_data,K,'k_means',500,10^-12,'ML',[1,2,8,16]);
 saveas(out3,'initialize with k means.jpg')
 clf('reset')
 %%
@@ -40,21 +40,27 @@ hold on
 plot(x_data(y_data==2,1),x_data(y_data==2,2),'b.');
 plot(C(:,1),C(:,2),'xk','MarkerSize',8,'linewidth',5)
 title('Clustering by k means algorithm')
+xlim([-4,4]);
+ylim([-4,4]);
 subplot(2,2,2)
 plot(x_data(y_predicted_rnd==1,1),x_data(y_predicted_rnd==1,2),'b.'); 
 hold on
 plot(x_data(y_predicted_rnd==2,1),x_data(y_predicted_rnd==2,2),'r.'); 
 title('Clustering by EM algorithm initilized by random value')
+xlim([-4,4]);
+ylim([-4,4]);
 subplot(2,2,3)
 plot(x_data(y_predicted_rnd_data==1,1),x_data(y_predicted_rnd_data==1,2),'r.'); 
 hold on
 plot(x_data(y_predicted_rnd_data==2,1),x_data(y_predicted_rnd_data==2,2),'b.'); 
 title('Clustering by EM algorithm initilized by random data')
+xlim([-4,4]);
+ylim([-4,4]);
 subplot(2,2,4)
 plot(x_data(y_predicted_k_means==1,1),x_data(y_predicted_k_means==1,2),'b.'); 
 hold on
 plot(x_data(y_predicted_k_means==2,1),x_data(y_predicted_k_means==2,2),'r.');
 title('Clustering by EM algorithm initilized by k means')
-
-
+xlim([-4,4]);
+ylim([-4,4]);
 

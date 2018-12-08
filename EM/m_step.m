@@ -31,7 +31,7 @@ function [pi,mu,sigma] = m_step(x_data,K,r,estimate)
             numerator=r(i,k).*(x_data(i,:)'*x_data(i,:))+numerator;
             end
             sigma(:,:,k)=(numerator./sum(r(:,k)))-mu(k,:)'*mu(k,:);
-            sigma(:,:,k)=sigma(:,:,k)+ 0.1*eye(d);
+            sigma(:,:,k)=sigma(:,:,k)+ 0.00001*eye(d);
         end
     end
     

@@ -18,9 +18,9 @@ rng default
 
 [K,~]=size(unique(y_data));
 %%
-y_predicted_rnd=EM(x_data,K,'random',50,10^-12,'MAP');
-y_predicted_rnd_data=EM(x_data,K,'data_random',50,10^-12,'MAP');
-y_predicted_k_means=EM(x_data,K,'k_means',500,10^-12,'MAP');
+[~,y_predicted_rnd]=EM(x_data,K,'random',50,10^-12,'MAP');
+[~,y_predicted_rnd_data]=EM(x_data,K,'data_random',50,10^-12,'MAP');
+[~,y_predicted_k_means]=EM(x_data,K,'k_means',500,10^-12,'MAP');
 
 
 

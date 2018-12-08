@@ -24,10 +24,10 @@ mu2 = [0 3];
 sigma2 = [2 1; 1 2];
 R2 = mvnrnd(mu2,sigma2,100);
 
-figure
-plot(R1(:,1),R1(:,2),'+')
-hold on
-plot(R2(:,1),R2(:,2),'o')
+% figure
+% plot(R1(:,1),R1(:,2),'+')
+% hold on
+% plot(R2(:,1),R2(:,2),'o')
 
 y_data=ones(samples_num,1);
 y_data(101:samples_num)=2;
@@ -36,9 +36,9 @@ x_data=[R1;R2];
 K=2;
 
 %%
-y_predicted_rnd=EM(x_data,K,'random',500,10^-5,'MAP');
-y_predicted_rnd_data=EM(x_data,K,'data_random',500,10^-5,'MAP');
-y_predicted_k_means=EM(x_data,K,'k_means',500,10^-5,'MAP');
+[~,y_predicted_rnd]=EM(x_data,K,'random',500,10^-5,'MAP');
+[~,y_predicted_rnd_data]=EM(x_data,K,'data_random',500,10^-5,'MAP');
+[~,y_predicted_k_means]=EM(x_data,K,'k_means',500,10^-5,'MAP');
 
 
 

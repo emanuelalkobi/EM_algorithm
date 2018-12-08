@@ -43,15 +43,21 @@ function [out,y_predicted] = EM(x_data,K,method,iters,diff,estimate,visual)
     obj_fun=0;
 
     for iter=1:iters
+        if ismember(iter,visual)
+            if iter==1
+             out=plot_figure(x_data,iter,visual,mu,sigma,zeros(n,K));
+            else
+             out=plot_figure(x_data,iter,visual,mu,sigma,r);
+            end
+        end
+        
         % E-step
         r=e_step(x_data,K,pi,mu,sigma);
         % M-step
         [pi,mu,sigma]=m_step(x_data,K,r,estimate);
         [~,predicted]=max(r,[],2);
         obj_fun(iter+1)=sum(log(mvnpdf(x_data,mu(predicted,:),sigma(:,:,predicted)))); 
-        if ismember(iter,visual)
-            out=plot_figure(x_data,iter,visual,mu,sigma,r);
-        end
+
 
         if abs((obj_fun(iter+1)-obj_fun(iter))/obj_fun(iter+1))<diff || iter==iters
             fprintf('Optimization converged after %d iterations .\n',iter);
