@@ -43,7 +43,7 @@ function [y_predicted] = EM(x_data,K,method,iters,diff)
         %obj_fun(iter+1)=sum(log(mvnpdf(x_data,mu(predicted,:),sigma(:,:,predicted)))); 
 
         if abs((obj_fun(iter+1)-obj_fun(iter))/obj_fun(iter+1))<diff;
-            fprintf('Optimization converged after %d iterations .\n',iter);
+            %fprintf('Optimization converged after %d iterations .\n',iter);
             break
         end
     end

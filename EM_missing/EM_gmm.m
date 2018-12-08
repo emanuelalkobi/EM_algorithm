@@ -39,7 +39,7 @@ K=2;
 %%
 %%remove some data
 x_miss = x_data;
-miss_ratio = 0;
+miss_ratio = 0.3;
 x_miss(rand(n,d)<miss_ratio) = NaN;
 y_miss=y_data;
 y_miss(sum(isnan(x_miss),2)==2)=[];

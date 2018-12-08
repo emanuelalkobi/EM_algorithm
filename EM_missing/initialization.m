@@ -25,7 +25,6 @@ function [pi,mu,sigma] = initialization(x_data,K,method)
     rng(9);
     [n,d]=size(x_data);
     if strcmp(method,'random')
-            rng(9);
 
         pi=ones(1,K)/K;
         mu=rand(K,d);
@@ -50,12 +49,12 @@ function [pi,mu,sigma] = initialization(x_data,K,method)
     
     if strcmp(method,'k_means')
         %take only observed data to initialize
-        x_o=x_data(sum(isnan(x_data),2)==0,:);
+        x_o=x_data(sum(~isnan(x_data),2)==d,:);
         [L,C] = kmeans(x_o,K);	
         mu = C;
         pi = hist(L,K)./length(L);
         for i = 1:K
-            sigma(:,:,i) = cov(x_o(L==i,:))+ 0.0001*eye(d);
+            sigma(:,:,i) = cov(x_o(L==i,:))+ 0.01*eye(d);
         end
     end
 
