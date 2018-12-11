@@ -22,7 +22,7 @@
 %                                                                         %
 %                                                                         %  
 
-function [y_predicted] = EM(x_data,K,method,iters,diff)
+function [y_predicted,mu,sigma] = EM(x_data,K,method,iters,diff)
     %initialization
     %number of dimension for each data point 
     [n,d]=size(x_data);
