@@ -10,16 +10,27 @@
 ## EM
 
 All the code regard the EM algorithm with different initializations.
+
 You don't have to download any dataset. zoo dataset we are using is already contained in the folder.
+
 Three main .m files can be run and get exactly the same result in the report.
+
 EM_oldfalthful.m : Apply EM on synthetic dataset which is 2 2d gaussian.
+
 EM_3_GMM.m : Apply EM on synthetic dataset which is 3 overlapping 2d  gaussian.
+
 EM_zoo.m : Apply EM on synthetic dataset which has 16 features and 7 classes.
+
 You can change parameter 'ML' to 'MAP' in EM_zoo.m and EM_3_GMM.m to get ML estimation or MAP estimation.
+
 axuliary files: e-step.m: implement E step
+
 m-step.m: implement E step
+
 EM.m: implement EM algorithm.
+
 plot_figure.m: plot soft assignemnt and ellipse
+
 initialization.m : different initalization methods.
 
 
