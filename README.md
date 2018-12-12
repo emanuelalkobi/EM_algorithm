@@ -14,7 +14,13 @@ All the code regard the EM algorithm with different initializations.
 ## EM_BMM
 
 EM algorithm for BMM model with mnist data set with different initializations.
+Before run the code download the MNIST dataset  which contains all the MNIST training and the test labels to the same directory.
+To run this code just run EM_BMM_MNIST_demo.m and it will execute all the relevant results.
+It automatically loads, initializes and  plots the EM_BMM on the MNIST dataset for k = 10 and plots the number of iterations to convergence and the time to run the code.
 
 ## EM_missing
 
 All the code regard the EM algoritm that can handled missing data.
+Run EM_gmm.m to generate the CCR values for different initialization types with 0.3  missinng data ratio. 
+Run em_graph.m to generate the plot of CCR as function of missing data ratio  
+
