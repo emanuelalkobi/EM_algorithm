@@ -21,7 +21,7 @@ rng default
 [~,y_predicted_rnd]=EM(x_data,K,'random',50,10^-12,'MAP');
 [~,y_predicted_rnd_data]=EM(x_data,K,'data_random',50,10^-12,'MAP');
 [~,y_predicted_k_means]=EM(x_data,K,'k_means',500,10^-12,'MAP');
-
+y_k_means=kmeans(x_data,K);
 
 
 
@@ -31,7 +31,7 @@ rng default
 ccr_random=label_clustring_ccr(y_predicted_rnd,K,y_data);
 ccr_data_random=label_clustring_ccr(y_predicted_rnd_data,K,y_data);
 ccr_k_means=label_clustring_ccr(y_predicted_k_means,K,y_data);
-
+ccr_y_k_means=label_clustring_ccr(y_k_means,K,y_data);
 %figure(1)
 %[s,h] = silhouette(x_data,predicted)
 %title('silhouette for clustering')
