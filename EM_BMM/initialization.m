@@ -27,9 +27,6 @@ function [pi,mu] = initialization(x_data,K,method)
     if strcmp(method,'random')
         pi=ones(1,K)/K;
         mu=rand(K,d);
-%         %% Discuss
-%         mu(mu >= 0.5) = 1;
-%         mu(mu < 0.5) = 0;
     end
     
     if strcmp(method,'data_random')
