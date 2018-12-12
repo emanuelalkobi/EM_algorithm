@@ -5,7 +5,7 @@
 
 
 
-### Directories
+### How to run the code?
 
 ## EM
 
